@@ -1,6 +1,6 @@
 package movableTask;
 
-public class MovablePoint implements Movable{
+class MovablePoint implements Movable{
 	public int x;
 	public int y;
 	public int xSpeed;

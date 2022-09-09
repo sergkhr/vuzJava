@@ -1,6 +1,6 @@
 package movableTask;
 
-public class MovableRectangle implements Movable{
+class MovableRectangle implements Movable{
 	private MovablePoint topLeft;
 	private MovablePoint bottomRight;
 

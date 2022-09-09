@@ -1,9 +1,15 @@
+import GUITask.FootballFrame;
+import shapeTask.Shape;
+
 public class Main {
 	public static void main(String[] args) {
-		Book daBook = new Book("zog", 2000);
-		System.out.println(daBook);
+		FootballFrame football = new FootballFrame();
+		football.setVisible(true);
+		//Book daBook = new Book("zog", 2000);
+		//System.out.println(daBook);
 
-		AuthorTest.testMain();
+		//AuthorTest.testMain();
+		//Shape.ShapeTest();
 	}
 }
 

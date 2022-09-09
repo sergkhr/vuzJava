@@ -1,6 +1,6 @@
 package movableTask;
 
-public class MovableCircle implements Movable{
+class MovableCircle implements Movable{
 	private int radius;
 	private MovablePoint center;
 
