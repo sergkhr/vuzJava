@@ -7,11 +7,13 @@ import javax.swing.*;
 public class FootballFrame extends JFrame{
 	private int firstTeamScore = 0;
 	private int secondTeamScore = 0;
+	private String firstTeamName = "AC Milan";
+	private String secondTeamName = "Real Madrid";
 	JLabel score = new JLabel("0 x 0");
 	JLabel winner = new JLabel("winner: DRAW");
 	JLabel lastScorer = new JLabel("last scorer: N/A");
-	JButton firstTeamGoal = new JButton("AC Milan");
-	JButton secondTeamGoal = new JButton("Real Madrid");
+	JButton firstTeamGoal = new JButton(firstTeamName);
+	JButton secondTeamGoal = new JButton(secondTeamName);
 
 	public FootballFrame(){
 		super("Football");
@@ -28,6 +30,40 @@ public class FootballFrame extends JFrame{
 		add(winner, BorderLayout.SOUTH);
 		lastScorer.setSize(100, 50);
 		add(lastScorer, BorderLayout.NORTH);
+
+		firstTeamGoal.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				firstTeamScore++;
+				score.setText(firstTeamScore + " x " + secondTeamScore);
+				lastScorer.setText("last scorer: " + firstTeamName);
+				if (firstTeamScore > secondTeamScore){
+					winner.setText("winner: " + firstTeamName);
+				}
+				else if (firstTeamScore < secondTeamScore){
+					winner.setText("winner: " + secondTeamName);
+				}
+				else{
+					winner.setText("winner: DRAW");
+				}
+			}
+		});
+
+		secondTeamGoal.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				secondTeamScore++;
+				score.setText(firstTeamScore + " x " + secondTeamScore);
+				lastScorer.setText("last scorer: " + secondTeamName);
+				if (firstTeamScore > secondTeamScore){
+					winner.setText("winner: " + firstTeamName);
+				}
+				else if (firstTeamScore < secondTeamScore){
+					winner.setText("winner: " + secondTeamName);
+				}
+				else{
+					winner.setText("winner: DRAW");
+				}
+			}
+		});
 	}
 
 }
