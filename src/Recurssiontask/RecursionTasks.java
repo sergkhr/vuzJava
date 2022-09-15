@@ -62,7 +62,7 @@ public class RecursionTasks {
 	private static void task3Rec(int a, int b){
 		if(a != b){
 			System.out.print(a + " ");
-			task3Rec(a + (b-a)/Math.abs(b-a), b);
+			task3Rec(a + (b-a)/Math.abs(b-a), b); //I think this is less efficient than if... but... it's more fun
 		}
 		else {
 			System.out.println(a);
