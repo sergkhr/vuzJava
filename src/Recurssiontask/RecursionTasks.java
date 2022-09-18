@@ -7,7 +7,7 @@ public class RecursionTasks {
 	private static Scanner in = new Scanner(System.in);
 
 	public static void taskPicker(){
-		System.out.println("Choose a task to run: 1-17 (print number (no fool proof))");
+		System.out.println("Choose a task to run: 1-3 (print number (no fool proof))");
 		int task = in.nextInt();
 		switch (task){
 			case 1:
@@ -18,6 +18,8 @@ public class RecursionTasks {
 				break;
 			case 3:
 				task3();
+				break;
+			default:
 				break;
 		}
 	}
