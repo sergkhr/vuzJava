@@ -2,6 +2,8 @@ import GUITask.FootballFrame;
 import Prac18.ArrGenerator;
 import Recurssiontask.RecursionTasks;
 import prac19.Human;
+import prac6.Student;
+import prac7.DrunkGame;
 import shapeTask.Shape;
 
 public class Main {
@@ -13,6 +15,10 @@ public class Main {
 
 		//ArrGenerator.generate();
 
-		Human.humanTest();
+		//Human.humanTest();
+
+		//Student.studentTest();
+
+		DrunkGame.play();
 	}
 }
