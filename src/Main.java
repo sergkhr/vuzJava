@@ -1,5 +1,9 @@
+import BookStuffTask.Author;
+import BookStuffTask.Book;
 import GUITask.FootballFrame;
 import Prac18.ArrGenerator;
+import Prac20.Dog;
+import Prac21.Priceable;
 import Recurssiontask.RecursionTasks;
 import prac19.Human;
 import prac6.Student;
@@ -8,6 +12,7 @@ import shapeTask.Shape;
 
 public class Main {
 	public static void main(String[] args) {
+		//Shape.ShapeTest();
 		//FootballFrame football = new FootballFrame();
 		//football.setVisible(true);
 
@@ -19,6 +24,10 @@ public class Main {
 
 		//Student.studentTest();
 
-		DrunkGame.play();
+		//DrunkGame.play();
+		//Dog.dogTest();
+		//Priceable.priceTest();
+
+		Prac22.Frame frame = new Prac22.Frame();
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 
 public class DrunkGame {
 	public static void play(){
-		int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] arr = {1, 3, 5, 7, 9, 2, 4, 6, 8, 0};
 		for (int i = 0; i < arr.length; i++) {
 			int rand = (int)(Math.random()*arr.length);
 			int temp = arr[i];
@@ -55,6 +55,11 @@ public class DrunkGame {
 				System.out.println("first " + turn);
 				return;
 			}
+
+			//print turn
+//			System.out.println("turn: " + turn);
+//			System.out.println("player 1 card: " + card1);
+//			System.out.println("player 2 card: " + card2);
 		}
 		System.out.println("botva");
 	}
