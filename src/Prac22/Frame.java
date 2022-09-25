@@ -46,7 +46,7 @@ public class Frame extends JFrame {
                         circle.draw(g);
                         break;
                     case 2:
-                        Triangle triangle = new Triangle((int)(Math.random() * 600), (int)(Math.random() * 400), (int)(Math.random() * 50), (int)(Math.random() * 50));
+                        Triangle triangle = new Triangle((int)(Math.random() * 600), (int)(Math.random() * 400), (int)(Math.random() * 50), (int)(Math.random() * 100 - 50));
                         triangle.draw(g);
                         break;
                 }

@@ -28,6 +28,10 @@ public class Main {
 		//Dog.dogTest();
 		//Priceable.priceTest();
 
-		Prac22.Frame frame = new Prac22.Frame();
+		//Prac22.Frame frame = new Prac22.Frame();
+
+		Prac23.GuessGame game = new Prac23.GuessGame();
+
+		//well you can actually make multiple main functions... i'm stupid
 	}
 }
