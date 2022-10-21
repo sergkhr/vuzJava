@@ -8,7 +8,7 @@ public class NumberFormatter {
 		System.out.println("Enter phone number");
 		String number = in.nextLine();
 		StringBuffer formattedNumber = new StringBuffer();
-		if(!((number.substring(0, 1).equals("8") && number.length() == 11) || (number.substring(0,2).equals("+7") && number.length() == 12))){
+		if(!((number.substring(0, 1).equals("8") && number.length() == 11) || number.substring(0,1).equals("+"))){
 			System.out.println("Wrong number");
 			return;
 		}
@@ -21,12 +21,13 @@ public class NumberFormatter {
 			formattedNumber.append(number.substring(7));
 		}
 		else{
-			formattedNumber.append(number.substring(0, 2));
-			formattedNumber.append(number.substring(2, 5));
+			int numberLength = number.length();
+			formattedNumber.append(number.substring(0, numberLength - 10));
+			formattedNumber.append(number.substring(numberLength - 10, numberLength - 7));
 			formattedNumber.append("-");
-			formattedNumber.append(number.substring(5, 8));
+			formattedNumber.append(number.substring(numberLength - 7, numberLength - 4));
 			formattedNumber.append("-");
-			formattedNumber.append(number.substring(8));
+			formattedNumber.append(number.substring(numberLength - 4));
 		}
 		System.out.println(formattedNumber);
 	}
