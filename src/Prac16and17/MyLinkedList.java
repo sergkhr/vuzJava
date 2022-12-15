@@ -41,4 +41,49 @@ public class MyLinkedList<E> {
 		this.getPrev().setNext(temp);
 		this.setPrev(temp);
 	}
+
+	public void remove() {
+		this.getPrev().setNext(this.getNext());
+		this.getNext().setPrev(this.getPrev());
+	}
+
+	public E get(int index) {
+		MyLinkedList<E> temp = this;
+		for (int i = 0; i < index; i++) {
+			temp = temp.getNext();
+		}
+		return temp.getData();
+	}
+
+	public MyLinkedList<E> getFirstByName(String name) {
+		MyLinkedList<E> temp = this;
+		while (temp.getNext() != this) {
+			temp = temp.getNext();
+			if (temp.getData().toString().equals(name)) {
+				return temp;
+			}
+		}
+		return null;
+	}
+
+	public MyLinkedList<E> getLastByName(String name) {
+		MyLinkedList<E> temp = this;
+		while (temp.getPrev() != this) {
+			temp = temp.getPrev();
+			if (temp.getData().toString().equals(name)) {
+				return temp;
+			}
+		}
+		return null;
+	}
+
+	public int size() {
+		MyLinkedList<E> temp = this;
+		int size = 0;
+		while (temp.getNext() != this) {
+			temp = temp.getNext();
+			size++;
+		}
+		return size;
+	}
 }

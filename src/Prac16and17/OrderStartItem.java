@@ -14,10 +14,13 @@ public class OrderStartItem implements Item{
 	public String getName() {
 		return name;
 	}
-	public int getPrice() {
+	public int getCost() {
 		return price;
 	}
 	public String getDescription() {
 		return description;
 	}
+	public void setName(String name) {this.name = name;}
+	public void setCost(int price) {this.price = price;}
+	public void setDescription(String description) {this.description = description;}
 }
