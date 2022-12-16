@@ -23,10 +23,12 @@ public class MoreRegex {
 		Pattern pattern1 = Pattern.compile("[A-Z]+");
 		Pattern pattern2 = Pattern.compile("[a-z]+");
 		Pattern pattern3 = Pattern.compile("[0-9]+");
+		Pattern full = Pattern.compile("[A-Za-z0-9_]+");
 		Matcher matcher1 = pattern1.matcher(line);
 		Matcher matcher2 = pattern2.matcher(line);
 		Matcher matcher3 = pattern3.matcher(line);
-		if (matcher1.find() && matcher2.find() && matcher3.find()) {
+		Matcher fullMatcher = full.matcher(line);
+		if (matcher1.find() && matcher2.find() && matcher3.find() && fullMatcher.matches()) {
 			System.out.println("password is valid");
 			if(line.length() >= 8) {
 				System.out.println("password is strong");

@@ -14,7 +14,7 @@ public class MyFolderSaver {
 		for (File file : folder.listFiles()) {
 			list.add(file.getName());
 		}
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5 && i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
 	}
