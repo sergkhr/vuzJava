@@ -70,17 +70,6 @@ public class MyLinkedList<E> {
 		return null;
 	}
 
-	public MyLinkedList<E> getLastByName(String name) {
-		MyLinkedList<E> temp = this;
-		while (temp.getPrev() != this) {
-			temp = temp.getPrev();
-			if (temp.getData().toString().equals(name)) {
-				return temp;
-			}
-		}
-		return null;
-	}
-
 	public int size() {
 		MyLinkedList<E> temp = this;
 		int size = 0;
@@ -100,5 +89,9 @@ public class MyLinkedList<E> {
 			}
 		}
 		return false;
+	}
+
+	public boolean isEmpty() {
+		return this.getNext() == this;
 	}
 }

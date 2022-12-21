@@ -1,7 +1,5 @@
 package Prac31and32;
 
-import Prac16and17.Item;
-
 public final class Drink implements Item, Alcoholable {
 	private String name;
 	private int price;
@@ -36,6 +34,25 @@ public final class Drink implements Item, Alcoholable {
 		this.description = description;
 		this.price = STARTING_PRICE;
 	}
+	public Drink(String name, int price, String description, double alcoholVol, DrinkTypeEnum type) {
+		if(price < 0) {
+			throw new IllegalArgumentException("Price cannot be negative");
+		}
+		if(name == null || name.equals("")) {
+			throw new IllegalArgumentException("Name cannot be null or empty");
+		}
+		if(description == null || description.equals("")) {
+			throw new IllegalArgumentException("Description cannot be null or empty");
+		}
+		if(alcoholVol < 0) {
+			throw new IllegalArgumentException("Alcohol volume cannot be negative");
+		}
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.alcoholVol = alcoholVol;
+		this.type = type;
+	}
 
 	public String getName() {return name;}
 	public int getCost() {
@@ -58,5 +75,10 @@ public final class Drink implements Item, Alcoholable {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Name: " + name + ", Price: " + price + ", Description: " + description + ", Alcohol volume: " + alcoholVol + ", Type: " + type;
 	}
 }

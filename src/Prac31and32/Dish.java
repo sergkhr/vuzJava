@@ -1,7 +1,5 @@
 package Prac31and32;
 
-import Prac16and17.Item;
-
 public final class Dish implements Item {
 	private String name;
 	private int price;
@@ -48,4 +46,8 @@ public final class Dish implements Item {
 	public void setCost(int price) {this.price = price;}
 	public void setDescription(String description) {this.description = description;}
 
+	@Override
+	public String toString() {
+		return "Dish: " + name + " - " + description + " - price: " + price;
+	}
 }

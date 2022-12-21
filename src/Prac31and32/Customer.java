@@ -31,4 +31,8 @@ public final class Customer {
     public boolean isMature() {
         return age >= 18;
     }
+
+    public boolean equals(Customer customer) {
+        return (this.firstName.equals(customer.firstName) && this.secondName.equals(customer.secondName) && this.age == customer.age && this.address.equals(customer.address));
+    }
 }

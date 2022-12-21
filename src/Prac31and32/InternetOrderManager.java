@@ -2,39 +2,42 @@ package Prac31and32;
 
 import java.util.HashMap;
 
-public class InternetOrderManager implements OrdersManager{
+public class InternetOrderManager implements OrderManager {
 	private int size;
-	private HashMap<String, Order> orders;
+	private HashMap<Customer, Order> orders;
 
 	public InternetOrderManager() {
 		this.size = 0;
-		this.orders = new HashMap<String, Order>();
+		this.orders = new HashMap<Customer, Order>();
 	}
 
-	public boolean add(String address, Order order){
-		if(order instanceof InternetOrder){
+	public boolean add(Customer customer, Order order){
+		if(!(order instanceof InternetOrder)){
 			throw new IllegalArgumentException("Order is not an internet order");
 		}
-		orders.put(address, order);
+		if(orders.containsKey(customer)){
+			throw new IllegalArgumentException("Customer already has as order");
+		}
+		orders.put(customer, order);
 		size++;
 		return true;
 	}
 
-	public boolean add(String address, Item item) {
-		if (orders.containsKey(address)) {
-			return orders.get(address).add(item);
+	public boolean add(Customer customer, Item item) {
+		if (orders.containsKey(customer)) {
+			return orders.get(customer).add(item);
 		} else {
-			throw new IllegalArgumentException("Address " + address + " is not in use");
+			throw new IllegalArgumentException("Customer " + customer + " has no orders");
 		}
 	}
 
-	public Order getOrder(String address) {
-		return orders.get(address);
+	public Order getOrder(Customer customer) {
+		return orders.get(customer);
 	}
 
-	public boolean remove(String address) {
-		if (orders != null && orders.containsKey(address)) {
-			orders.remove(address);
+	public boolean remove(Customer customer) {
+		if (orders != null && orders.containsKey(customer)) {
+			orders.remove(customer);
 			return true;
 		} else {
 			return false;

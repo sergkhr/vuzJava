@@ -159,4 +159,8 @@ public class TableOrder implements Order {
 	public void setTableNumber(int tableNumber) {
 		this.tableNumber = tableNumber;
 	}
+
+	public boolean isEmpty() {
+		return size == 0;
+	}
 }

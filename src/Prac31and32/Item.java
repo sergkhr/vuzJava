@@ -7,5 +7,5 @@ public interface Item {
 	void setName(String name);
 	void setCost(int price);
 	void setDescription(String description);
-
+	String toString();
 }

@@ -44,4 +44,8 @@ public final class Address {
     public int getApartmentNumber() {
         return apartmentNumber;
     }
+
+    public boolean equals(Address address) {
+        return (this.cityName.equals(address.cityName) && this.zipCode == address.zipCode && this.streetName.equals(address.streetName) && this.buildingNumber == address.buildingNumber && this.buildingLetter == address.buildingLetter && this.apartmentNumber == address.apartmentNumber);
+    }
 }

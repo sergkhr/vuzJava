@@ -1,31 +1,31 @@
 package Prac31and32;
 
-public class TableOrdersManager implements OrdersManager {
+public class TableOrderManager implements OrderManager {
     private MyLinkedList<Order> orders = new MyLinkedList<Order>(new TableOrderListStart());
     private int tablesCount = 10;
     private  boolean[] occupiedTable = new boolean[tablesCount];
 
     public void add(Order order, int tableNumber) {
-        if(tableNumber < 1 || tableNumber > tablesCount) {
+        if(tableNumber < 0 || tableNumber >= tablesCount) {
             throw new IllegalArgumentException("Table number is out of range");
         }
-        if(occupiedTable[tableNumber - 1]) {
+        if(occupiedTable[tableNumber]) {
             throw new IllegalArgumentException("Table number " + tableNumber + " is already in use");
         }
         if (order instanceof TableOrder) {
             ((TableOrder) order).setTableNumber(tableNumber);
             orders.add(order);
-            occupiedTable[tableNumber - 1] = true;
+            occupiedTable[tableNumber] = true;
         } else {
             throw new IllegalArgumentException("Order is not a table order");
         }
     }
 
-    public void addItem(Item item, int tableNumber) {
-        if(tableNumber < 1 || tableNumber > tablesCount) {
+    public void add(Item item, int tableNumber) {
+        if(tableNumber < 0 || tableNumber >= tablesCount) {
             throw new IllegalArgumentException("Table number is out of range");
         }
-        if(!occupiedTable[tableNumber - 1]) {
+        if(!occupiedTable[tableNumber]) {
             throw new IllegalArgumentException("Table number " + tableNumber + " is not in use");
         }
         MyLinkedList<Order> temp = orders.getNext();
@@ -116,10 +116,10 @@ public class TableOrdersManager implements OrdersManager {
     }
 
     public Order getOrder(int tableNumber) {
-        if(tableNumber < 1 || tableNumber > tablesCount) {
+        if(tableNumber < 0 || tableNumber >= tablesCount) {
             throw new IllegalArgumentException("Table number is out of range");
         }
-        if(!occupiedTable[tableNumber - 1]) {
+        if(!occupiedTable[tableNumber]) {
             throw new IllegalArgumentException("Table number " + tableNumber + " is not in use");
         }
         MyLinkedList<Order> temp = orders.getNext();
@@ -135,10 +135,10 @@ public class TableOrdersManager implements OrdersManager {
     }
 
     public void remove(int tableNumber) {
-        if(tableNumber < 1 || tableNumber > tablesCount) {
+        if(tableNumber < 0 || tableNumber >= tablesCount) {
             throw new IllegalArgumentException("Table number is out of range");
         }
-        if(!occupiedTable[tableNumber - 1]) {
+        if(!occupiedTable[tableNumber]) {
             throw new IllegalArgumentException("Table number " + tableNumber + " is not in use");
         }
         MyLinkedList<Order> temp = orders.getNext();
@@ -146,7 +146,7 @@ public class TableOrdersManager implements OrdersManager {
             if (temp.getData() instanceof TableOrder) {
                 if (((TableOrder) temp.getData()).getTableNumber() == tableNumber) {
                     temp.remove();
-                    occupiedTable[tableNumber - 1] = false;
+                    occupiedTable[tableNumber] = false;
                     return;
                 }
             }
@@ -159,7 +159,7 @@ public class TableOrdersManager implements OrdersManager {
         while (temp != orders) {
             if (temp.getData() == order) {
                 temp.remove();
-                occupiedTable[((TableOrder) order).getTableNumber() - 1] = false;
+                occupiedTable[((TableOrder) order).getTableNumber()] = false;
                 return;
             }
             temp = temp.getNext();
@@ -172,7 +172,7 @@ public class TableOrdersManager implements OrdersManager {
         while (temp != orders) {
             if (temp.getData() == order) {
                 temp.remove();
-                occupiedTable[((TableOrder) order).getTableNumber() - 1] = false;
+                occupiedTable[((TableOrder) order).getTableNumber()] = false;
                 count++;
             }
             temp = temp.getNext();

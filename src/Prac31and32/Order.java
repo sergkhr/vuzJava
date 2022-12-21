@@ -15,4 +15,5 @@ public interface Order {
 	int costTotal();
 	Customer getCustomer();
 	void setCustomer(Customer customer);
+	boolean isEmpty();
 }

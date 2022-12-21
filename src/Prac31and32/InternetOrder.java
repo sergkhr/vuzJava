@@ -7,6 +7,10 @@ public class InternetOrder implements Order {
 	public InternetOrder() {
 		list = new MyLinkedList<Item>(new OrderStartItem());
 	}
+	public InternetOrder(Customer customer) {
+		list = new MyLinkedList<Item>(new OrderStartItem());
+		this.customer = customer;
+	}
 	public InternetOrder(Item[] items) {
 		list = new MyLinkedList<Item>(new OrderStartItem());
 		for (Item item : items) {
@@ -36,8 +40,12 @@ public class InternetOrder implements Order {
 		return names;
 	}
 
+//	public int itemsQuantity() {
+//		return list.size() - 1; //-1 is for start item
+//	}
+	//doesn't work with -1, but does without it for some reason
 	public int itemsQuantity() {
-		return list.size() - 1; //-1 is for start item
+		return list.size();
 	}
 
 	public int itemsQuantity(String name) {
@@ -74,13 +82,25 @@ public class InternetOrder implements Order {
 	}
 
 	public boolean remove(String name){
-		list.getLastByName(name).remove();
-		return true;
+		MyLinkedList<Item> temp;
+		for(temp = list.getPrev(); temp != list; temp = temp.getPrev()) {
+			if(temp.getData().getName().equals(name)) {
+				temp.remove();
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean remove(Item item){
-		list.getLastByName(item.getName()).remove();
-		return true;
+		MyLinkedList<Item> temp;
+		for(temp = list.getPrev(); temp != list; temp = temp.getPrev()) {
+			if(temp.getData().equals(item)) {
+				temp.remove();
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public int removeAll(String name){
@@ -135,5 +155,9 @@ public class InternetOrder implements Order {
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public boolean isEmpty() {
+		return list.isEmpty();
 	}
 }
