@@ -98,7 +98,7 @@ public class OrdersManagerGraphicalInterface extends JFrame {
 			return;
 		}
 		Item[] items = currentOrder.sortedItemsByCostDesc();
-		for (int i = 0; i < items.length; i++){
+		for (int i = 0; i < currentOrder.itemsQuantity(); i++){
 			orderDetails += items[i].getName() + " " + items[i].getCost() + "\n";
 		}
 		orderDetailsArea.setText(orderDetails);
@@ -124,7 +124,7 @@ public class OrdersManagerGraphicalInterface extends JFrame {
 			return;
 		}
 		Item[] items = currentOrder.sortedItemsByCostDesc();
-		for (int i = 0; i < items.length; i++){
+		for (int i = 0; i < currentOrder.itemsQuantity(); i++){
 			orderDetails += items[i].getName() + " " + items[i].getCost() + "\n";
 		}
 		orderDetailsArea.setText(orderDetails);
@@ -356,7 +356,7 @@ public class OrdersManagerGraphicalInterface extends JFrame {
 				boolean isAlcoholInOrder = false;
 				Order currentOrder = internetOrderManager.getOrder(customers.get(currentCustomerIndex));
 				Item[] items = currentOrder.getItems();
-				for (int i = 0; i < items.length; i++){
+				for (int i = 0; i < currentOrder.itemsQuantity(); i++){
 					//check if item is a drink
 					if(items[i] instanceof Drink){
 						//check if drink is alcoholic
@@ -383,7 +383,7 @@ public class OrdersManagerGraphicalInterface extends JFrame {
 				boolean isAlcoholInOrder = false;
 				Order currentOrder = tableOrderManager.getOrder(currentTable);
 				Item[] items = currentOrder.getItems();
-				for (int i = 0; i < items.length; i++){
+				for (int i = 0; i < currentOrder.itemsQuantity(); i++){
 					//check if item is a drink
 					if(items[i] instanceof Drink){
 						//check if drink is alcoholic
